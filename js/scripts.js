@@ -32,6 +32,12 @@ var totalPopulation = {
   width: 1000,
 }
 
+// Call the makeBarChart function using the configs for the three desired charts
+makeBarChart(totalWater)
+makeBarChart(waterPerCapita)
+makeBarChart(totalPopulation)
+
+// Function which creates a bar chart in a specified div using the chart config passed to it as a variable
 function makeBarChart(chartConfig) {
 
   var jsonURL = chartConfig.jsonURL;
@@ -125,11 +131,6 @@ function makeBarChart(chartConfig) {
 
   });
 }
-
-makeBarChart(totalWater)
-makeBarChart(waterPerCapita)
-makeBarChart(totalPopulation)
-
 
 //
 // // get the dimensions of the browser window
