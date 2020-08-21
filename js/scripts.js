@@ -6,8 +6,8 @@ var totalWater = {
   yDenominator: 1,
   yLabel: 'Million Gallons Per Day',
   divName: 'chart-total',
-  height: 300,
-  width: 1000,
+  height: getHeight(),
+  width: getWidth(),
 }
 
 var waterPerCapita = {
@@ -17,8 +17,8 @@ var waterPerCapita = {
   yDenominator: 1,
   yLabel: 'Avg. Gallons of Water Per Person Per Day',
   divName: 'chart-per-capita',
-  height: 300,
-  width: 1000,
+  height: getHeight(),
+  width: getWidth(),
 }
 
 var totalPopulation = {
@@ -28,8 +28,8 @@ var totalPopulation = {
   yDenominator: 1000000,
   yLabel: 'Million People',
   divName: 'chart-population',
-  height: 300,
-  width: 1000,
+  height: getHeight(),
+  width: getWidth(),
 }
 
 // Call the makeBarChart function using the configs for the three desired charts
@@ -145,30 +145,10 @@ function makeBarChart(chartConfig) {
   });
 }
 
-//
-// // get the dimensions of the browser window
-// function getWidth() {
-//   return Math.max(
-//     document.body.scrollWidth,
-//     document.documentElement.scrollWidth,
-//     document.body.offsetWidth,
-//     document.documentElement.offsetWidth,
-//     document.documentElement.clientWidth
-//   );
-// }
-//
-// function getHeight() {
-//   return Math.max(
-//     document.body.scrollHeight,
-//     document.documentElement.scrollHeight,
-//     document.body.offsetHeight,
-//     document.documentElement.offsetHeight,
-//     document.documentElement.clientHeight
-//   );
-// }
-//
-// // set the dimensions of the canvas
-// var margin = {top: 20, right: 20, bottom: 70, left: 100},
-//     width = getWidth()/2 - margin.left - margin.right,
-//     height = getHeight()/1.5 - margin.top - margin.bottom;
-//
+function getWidth() {
+  return document.getElementById("left-pane-charts").offsetWidth;
+}
+
+function getHeight() {
+  return document.getElementById("left-pane-charts").offsetHeight;
+}

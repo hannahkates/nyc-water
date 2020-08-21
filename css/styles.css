@@ -1,6 +1,16 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 50px 50px;
+}
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
 h1 {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-  Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 40px;
     margin-left: 25px
 }
@@ -35,8 +45,6 @@ p {
 .d3-tip {
   line-height: 1;
   font-weight: bold;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-Helvetica, Arial, "Lucida Grande", sans-serif;
   padding: 12px;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
