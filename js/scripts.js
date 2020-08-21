@@ -67,6 +67,14 @@ function makeBarChart(chartConfig) {
       .orient("left")
       .ticks(10);
 
+  // define the tooltop for hover
+  var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return d[yVariable] / yDenominator;
+  })
+
   // add the SVG element
   var chart = d3.select("#" + divName).append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -74,6 +82,9 @@ function makeBarChart(chartConfig) {
     .append("g")
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
+
+  // apply the tooltip to the svg
+  chart.call(tip);
 
   // load the data
   d3.json(jsonURL, function(error, data) {
@@ -127,7 +138,9 @@ function makeBarChart(chartConfig) {
         .attr("x", function(d) { return x(d.xVariable); })
         .attr("width", x.rangeBand())
         .attr("y", function(d) { return y(d.yVariable); })
-        .attr("height", function(d) { return height - y(d.yVariable); });
+        .attr("height", function(d) { return height - y(d.yVariable); })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
 
   });
 }
