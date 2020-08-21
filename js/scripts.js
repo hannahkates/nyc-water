@@ -3,20 +3,10 @@ var totalWater = {
   jsonURL: 'https://data.cityofnewyork.us/resource/waf7-5gvc.json',
   xVariable: 'year',
   yVariable: 'nyc_consumption_million_gallons_per_day',
+  yAxisMin: 600,
   yDenominator: 1,
   yLabel: 'Million Gallons Per Day',
   divName: 'chart-total',
-  height: getHeight(),
-  width: getWidth(),
-}
-
-var waterPerCapita = {
-  jsonURL: 'https://data.cityofnewyork.us/resource/waf7-5gvc.json',
-  xVariable: 'year',
-  yVariable: 'per_capita_gallons_per_person_per_day',
-  yDenominator: 1,
-  yLabel: 'Avg. Gallons of Water Per Person Per Day',
-  divName: 'chart-per-capita',
   height: getHeight(),
   width: getWidth(),
 }
@@ -25,9 +15,22 @@ var totalPopulation = {
   jsonURL: 'https://data.cityofnewyork.us/resource/waf7-5gvc.json',
   xVariable: 'year',
   yVariable: 'new_york_city_population',
+  yAxisMin: 6,
   yDenominator: 1000000,
   yLabel: 'Million People',
   divName: 'chart-population',
+  height: getHeight(),
+  width: getWidth(),
+}
+
+var waterPerCapita = {
+  jsonURL: 'https://data.cityofnewyork.us/resource/waf7-5gvc.json',
+  xVariable: 'year',
+  yVariable: 'per_capita_gallons_per_person_per_day',
+  yAxisMin: 80,
+  yDenominator: 1,
+  yLabel: 'Gallons Per Capita Per Day',
+  divName: 'chart-per-capita',
   height: getHeight(),
   width: getWidth(),
 }
@@ -43,6 +46,7 @@ function makeBarChart(chartConfig) {
   var jsonURL = chartConfig.jsonURL;
   var xVariable = chartConfig.xVariable;
   var yVariable = chartConfig.yVariable;
+  var yAxisMin = chartConfig.yAxisMin;
   var yDenominator = chartConfig.yDenominator;
   var yLabel = chartConfig.yLabel;
   var divName = chartConfig.divName;
@@ -52,7 +56,7 @@ function makeBarChart(chartConfig) {
   var margin = {top: 20, right: 20, bottom: 70, left: 90};
   // set the ranges
   // x: ([start, end], outerPadding)
-  var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+  var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
 
   // y: (top of axis, bottom of axis)
   var y = d3.scale.linear().range([height, 0]);
@@ -96,7 +100,7 @@ function makeBarChart(chartConfig) {
 
     // scale the range of the data
     x.domain(data.map(function(d) { return d.xVariable; }));
-    y.domain([0, d3.max(data, function(d) { return d.yVariable; })]);
+    y.domain([yAxisMin, d3.max(data, function(d) { return d.yVariable; })]);
 
     // define the axes
     var xAxis = d3.svg.axis()
