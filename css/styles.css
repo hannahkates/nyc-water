@@ -23,23 +23,12 @@ p {
     font-size: 14px;
 }
 
-.bar{
+rect{
   fill: steelblue;
 }
 
-.bar:hover{
+rect:hover{
   fill: navy;
-}
-
-.axis {
-  font: 14px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
 }
 
 .d3-tip {
