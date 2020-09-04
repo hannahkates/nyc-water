@@ -109,7 +109,7 @@ function makeBarChart(chartConfig) {
     // Add the area chart
     svg.append("path")
       .datum(data)
-      .attr("fill", "steelblue")
+      .attr("fill", "#def0ff")
       .attr("stroke", "navy")
       .attr("stroke-width", 0)
       .attr("d", d3.area()
