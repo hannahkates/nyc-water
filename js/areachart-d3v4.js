@@ -99,6 +99,7 @@ function makeBarChart(chartConfig) {
         .style("text-anchor", "end")
         .text(yLabel);
 
+
     // functions that will add commas for thousands and round to 2 decimal places
     var formatThousands = d3.format(',.1f');
 
@@ -124,6 +125,15 @@ function makeBarChart(chartConfig) {
         .y0(y(yAxisMin))
         .y1(function(d) { return y(d[yVariable]/yDenominator) })
       );
+
+    // add the Y gridlines
+    svg.append("g")
+        .attr("class", "grid")
+        .call(d3.axisLeft(y)
+            .ticks(10)
+            .tickSize(-width)
+            .tickFormat("")
+        )
 
     // Add the line
     svg.append("path")
