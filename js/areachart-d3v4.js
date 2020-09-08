@@ -7,6 +7,7 @@ var totalWater = {
   yAxisMax: 1600,
   yDenominator: 1,
   yLabel: 'Million Gallons Per Day',
+  yLabelShort: 'MGD',
   divName: 'chart-total',
   height: getHeight(),
   width: getWidth(),
@@ -20,6 +21,7 @@ var totalPopulation = {
   yAxisMax: 8.6,
   yDenominator: 1000000,
   yLabel: 'Million People',
+  yLabelShort: 'M',
   divName: 'chart-population',
   height: getHeight(),
   width: getWidth(),
@@ -33,6 +35,7 @@ var waterPerCapita = {
   yAxisMax: 220,
   yDenominator: 1,
   yLabel: 'Gallons Per Capita Per Day',
+  yLabelShort: 'GPCD',
   divName: 'chart-per-capita',
   height: getHeight(),
   width: getWidth(),
@@ -53,6 +56,7 @@ function makeBarChart(chartConfig) {
   var yAxisMax = chartConfig.yAxisMax;
   var yDenominator = chartConfig.yDenominator;
   var yLabel = chartConfig.yLabel;
+  var yLabelShort = chartConfig.yLabelShort;
   var divName = chartConfig.divName;
   var height = chartConfig.height;
   var width = chartConfig.width;
@@ -93,14 +97,17 @@ function makeBarChart(chartConfig) {
         .attr("y", -62) // offset to left of axis
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text(yLabel);;
+        .text(yLabel);
+
+    // functions that will add commas for thousands and round to 2 decimal places
+    var formatThousands = d3.format(',.1f');
 
     // Define the tooltop for hover
     var tool_tip = d3.tip()
-    .attr('class', 'd3-tip')
-    .offset([-10, 0])
-    .html(function(d) {
-      return d[yVariable]/yDenominator;
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(function(d) {
+        return formatThousands(d[yVariable]/yDenominator) + " " + yLabelShort;
     })
 
     // Apply the tooltip to the svg
