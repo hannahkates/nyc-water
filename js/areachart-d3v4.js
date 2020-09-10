@@ -61,13 +61,14 @@ function makeBarChart(chartConfig) {
   var height = chartConfig.height;
   var width = chartConfig.width;
 
-  var margin = {top: 20, right: 20, bottom: 70, left: 90};
+  var margin = {top: 20, right: 10, bottom: 70, left: 55};
 
   // Parse the Data
   d3.csv(dataURL, function(data) {
 
     // add the SVG element
-    var svg = d3.select("#" + divName).append("svg")
+    var svg = d3.select("#" + divName)
+      .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -88,16 +89,16 @@ function makeBarChart(chartConfig) {
 
     // Add Y axis
     var y = d3.scaleLinear()
-      .domain([yAxisMin, yAxisMax])
-      .range([ height, 0]);
+      .domain([yAxisMin, yAxisMax]).nice()
+      .range([height, 0]);
     svg.append("g")
       .call(d3.axisLeft(y))
     svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", -62) // offset to left of axis
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text(yLabel);
+      .attr("transform", "rotate(-90)")
+      .attr("y", -55) // offset to left of axis
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text(yLabel);
 
 
     // functions that will add commas for thousands and round to 2 decimal places
@@ -151,21 +152,26 @@ function makeBarChart(chartConfig) {
       .data(data)
       .enter()
       .append("circle")
-        .attr("fill", "#00AAFF")
+        .attr("fill", "navy")
         .attr("stroke", "none")
         .attr("cx", function(d) { return x(d[xVariable]) })
         .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
-        .attr("r", 4)
+        .attr("r", 3)
         .on('mouseover', tool_tip.show)
-        .on('mouseout', tool_tip.hide);
-
+        .on('mouseout', tool_tip.hide)
+        .style("opacity", 0)
+        .transition()
+        .delay(function(d,i){ return i * 50 })
+        .style("opacity", 1);
   })
 }
 
 function getWidth() {
-  return document.getElementById("left-pane-charts").offsetWidth;
+  // return document.getElementById("chart-total").offsetWidth;
+  return 500;
 }
 
 function getHeight() {
-  return document.getElementById("left-pane-charts").offsetHeight;
+  // return document.getElementById("chart-total").offsetHeight;
+  return 180;
 }
