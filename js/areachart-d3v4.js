@@ -79,7 +79,8 @@ function makeBarChart(chartConfig) {
       .call(d3.axisBottom(x))
       .selectAll("text")
         .attr("transform", "translate(-12,10)rotate(-90)")
-        .style("text-anchor", "end");
+        .style("text-anchor", "end")
+        .style("font-size", "9px");
 
     // Add Y axis
     var y = d3.scaleLinear()
@@ -92,6 +93,7 @@ function makeBarChart(chartConfig) {
       .attr("y", -55) // offset to left of axis
       .attr("dy", ".71em")
       .style("text-anchor", "end")
+      .style("font-size", "9px")
       .text(yLabel);
 
 
