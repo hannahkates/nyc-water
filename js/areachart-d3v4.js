@@ -9,8 +9,6 @@ var totalWater = {
   yLabel: 'Million Gallons Per Day',
   yLabelShort: 'MGD',
   divName: 'chart-total',
-  height: getHeight(),
-  width: getWidth(),
 }
 
 var totalPopulation = {
@@ -23,8 +21,6 @@ var totalPopulation = {
   yLabel: 'Million People',
   yLabelShort: 'M',
   divName: 'chart-population',
-  height: getHeight(),
-  width: getWidth(),
 }
 
 var waterPerCapita = {
@@ -37,8 +33,6 @@ var waterPerCapita = {
   yLabel: 'Gallons Per Capita Per Day',
   yLabelShort: 'GPCD',
   divName: 'chart-per-capita',
-  height: getHeight(),
-  width: getWidth(),
 }
 
 // Call the makeBarChart function using the configs for the three desired charts
@@ -49,6 +43,8 @@ makeBarChart(waterPerCapita)
 // Function which creates a bar chart in a specified div using the chart config passed to it as a variable
 function makeBarChart(chartConfig) {
 
+  var margin = {top: 40, right: 40, bottom: 70, left: 60};
+
   var dataURL = chartConfig.dataURL;
   var xVariable = chartConfig.xVariable;
   var yVariable = chartConfig.yVariable;
@@ -58,10 +54,8 @@ function makeBarChart(chartConfig) {
   var yLabel = chartConfig.yLabel;
   var yLabelShort = chartConfig.yLabelShort;
   var divName = chartConfig.divName;
-  var height = chartConfig.height;
-  var width = chartConfig.width;
-
-  var margin = {top: 20, right: 10, bottom: 70, left: 55};
+  var chartHeight = 180;
+  var width = getInnerWidth() - margin.right - margin.left;
 
   // Parse the Data
   d3.csv(dataURL, function(data) {
@@ -70,7 +64,7 @@ function makeBarChart(chartConfig) {
     var svg = d3.select("#" + divName)
       .append("svg")
         .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("height", chartHeight + margin.top + margin.bottom)
       .append("g")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
@@ -81,7 +75,7 @@ function makeBarChart(chartConfig) {
       .domain(data.map(function(d) { return d[xVariable]; }))
       .padding(1);
     svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + chartHeight + ")")
       .call(d3.axisBottom(x))
       .selectAll("text")
         .attr("transform", "translate(-12,10)rotate(-90)")
@@ -90,7 +84,7 @@ function makeBarChart(chartConfig) {
     // Add Y axis
     var y = d3.scaleLinear()
       .domain([yAxisMin, yAxisMax]).nice()
-      .range([height, 0]);
+      .range([chartHeight, 0]);
     svg.append("g")
       .call(d3.axisLeft(y))
     svg.append("text")
@@ -118,7 +112,7 @@ function makeBarChart(chartConfig) {
     // Add the area chart
     svg.append("path")
       .datum(data)
-      .attr("fill", "#def0ff")
+      .attr("fill", "#cfe9ff")
       .attr("stroke", "navy")
       .attr("stroke-width", 0)
       .attr("d", d3.area()
@@ -166,12 +160,8 @@ function makeBarChart(chartConfig) {
   })
 }
 
-function getWidth() {
-  // return document.getElementById("chart-total").offsetWidth;
-  return 500;
-}
-
-function getHeight() {
-  // return document.getElementById("chart-total").offsetHeight;
-  return 180;
+function getInnerWidth() {
+  var innerWidth = parseFloat(window.getComputedStyle(document.getElementById("main"), null).getPropertyValue("width"));
+  console.log(innerWidth);
+  return innerWidth;
 }

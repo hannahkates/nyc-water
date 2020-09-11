@@ -1,3 +1,49 @@
+body {
+  font-family: "Tahoma";
+  padding:0px;
+  background-color:#edf7ff;
+}
+
+.left-white {
+  padding:20px;
+  float:left;
+  width:20%; /* The width is 20%, by default */
+}
+
+.main {
+  /* background-color:#ffffff; */
+  padding:20px;
+  float:left;
+  width:50%; /* The width is 60%, by default */
+}
+
+.right-white {
+  padding:20px;
+  float:left;
+  width:20%; /* The width is 20%, by default */
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+  .left-white, .main, .right-white {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .left-white, .right-white {
+    padding: 0px; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+  .left-white, .main, .right-white {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .left-white, .right-white {
+    padding: 0px; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+
 .text-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -12,12 +58,6 @@
   /* grid-gap: 10px 10px; */
 /* } */
 
-body {
-  font-family: "Tahoma";
-  margin-top: 2em;
-  margin-left: 20em;
-  margin-right: 20em;
-}
 
 h1 {
   font-family: "Georgia";
@@ -30,6 +70,16 @@ h4 {
 
 p {
   font-size: 14px;
+}
+
+img {
+  width:100%;
+  max-width:100%;
+  height:auto;
+}
+
+img.logo {
+  width:22px;
 }
 
 figure.banner-img {
