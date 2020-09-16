@@ -35,50 +35,22 @@ var waterPerCapita = {
   divName: 'chart-per-capita',
 }
 
-function renderChart() {
-  // Call the makeBarChart function using the configs for the three desired charts
-  makeBarChart(totalWater)
-  makeBarChart(totalPopulation)
-  makeBarChart(waterPerCapita)
+// instantiate the scrollama
+const scroller = scrollama();
+
+// the intial default visibility for all the chart divs is false.
+// this keeps the circle animations from being added to the svgs.
+let divIsVisible = false;
+
+function renderCharts() {
+  // Call the makeChart function using the configs for the three desired charts
+  makeChart(totalWater, divIsVisible)
+  makeChart(totalPopulation, divIsVisible)
+  makeChart(waterPerCapita, divIsVisible)
 }
 
-// // instantiate the scrollama
-// const scroller = scrollama();
-
-// // setup the instance, pass callback functions
-// scroller
-//   .setup({
-//     step: ".step"
-//   })
-//   .onStepEnter(response => {
-//     // Add the circles
-//     svg.selectAll("myCircles")
-//       .data(data)
-//       .enter()
-//       .append("circle")
-//         .attr("fill", "navy")
-//         .attr("stroke", "none")
-//         .attr("cx", function(d) { return x(d[xVariable]) })
-//         .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
-//         .attr("r", 3)
-//         .on('mouseover', tool_tip.show)
-//         .on('mouseout', tool_tip.hide)
-//         .style("opacity", 0)
-//         .transition()
-//         .delay(function(d,i){ return i * 50 })
-//         .style("opacity", 1);
-//     // { element, index, direction }
-//   })
-//   .onStepExit(response => {
-//     console.log('im out!');
-//     // { element, index, direction }
-//   });
-
-// // setup resize event
-// window.addEventListener("resize", scroller.resize);
-
 // Function which creates a bar chart in a specified div using the chart config passed to it as a variable
-function makeBarChart(chartConfig) {
+function makeChart(chartConfig, divVisibility) {
 
   var margin = {top: 40, right: 40, bottom: 70, left: 60};
 
@@ -141,17 +113,6 @@ function makeBarChart(chartConfig) {
     // functions that will add commas for thousands and round to 2 decimal places
     var formatThousands = d3.format(',.1f');
 
-    // Define the tooltop for hover
-    var tool_tip = d3.tip()
-      .attr('class', 'd3-tip')
-      .offset([-10, 0])
-      .html(function(d) {
-        return formatThousands(d[yVariable]/yDenominator) + " " + yLabelShort;
-    })
-
-    // Apply the tooltip to the svg
-    svg.call(tool_tip);
-
     // Add the area chart
     svg.append("path")
       .datum(data)
@@ -184,61 +145,69 @@ function makeBarChart(chartConfig) {
         .y(function(d) { return y(d[yVariable]/yDenominator) })
         )
 
-    // Add the circles
-    svg.selectAll("myCircles")
-      .data(data)
-      .enter()
-      .append("circle")
-        .attr("fill", "navy")
-        .attr("stroke", "none")
-        .attr("cx", function(d) { return x(d[xVariable]) })
-        .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
-        .attr("r", 3)
-        .on('mouseover', tool_tip.show)
-        .on('mouseout', tool_tip.hide)
-        .style("opacity", 0)
-        .transition()
-        .delay(function(d,i){ return i * 50 })
-        .style("opacity", 1);
+    // Define the tooltop for hover
+    var tool_tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(function(d) {
+        return formatThousands(d[yVariable]/yDenominator) + " " + yLabelShort;
+    })
 
-    // setup the instance, pass callback functions
-    // scroller
-    //   .setup({
-    //     step: ".step"
-    //   })
-    //   .onStepEnter(response => {
-    //     console.log('im in a div');
-    //     // Add the circles
-    //     svg.selectAll("myCircles")
-    //       .data(data)
-    //       .enter()
-    //       .append("circle")
-    //         .attr("fill", "navy")
-    //         .attr("stroke", "none")
-    //         .attr("cx", function(d) { return x(d[xVariable]) })
-    //         .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
-    //         .attr("r", 3)
-    //         .on('mouseover', tool_tip.show)
-    //         .on('mouseout', tool_tip.hide)
-    //         .style("opacity", 0)
-    //         .transition()
-    //         .delay(function(d,i){ return i * 50 })
-    //         .style("opacity", 1);
-    //     // { element, index, direction }
-    //   })
-    //   .onStepExit(response => {
-    //     console.log('im out!');
-    //     // { element, index, direction }
-    //   });
+    // Apply the tooltip to the svg
+    svg.call(tool_tip);
+
+    // Only add the circle animations once the specific div is visible in the viewport
+    if (divVisibility == true) {
+      // Add the circles
+      svg.selectAll("myCircles")
+        .data(data)
+        .enter()
+        .append("circle")
+          .attr("fill", "navy")
+          .attr("stroke", "none")
+          .attr("cx", function(d) { return x(d[xVariable]) })
+          .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
+          .attr("r", 3)
+          .on('mouseover', tool_tip.show)
+          .on('mouseout', tool_tip.hide)
+          .style("opacity", 0)
+          .transition()
+          .delay(function(d,i){ return i * 70 })
+          .style("opacity", 1);
+    }
   })
 }
 
+function toggleAnimation(currentDiv, newVisibility) {
+  if (currentDiv == 'chart-total') {
+    makeChart(totalWater, newVisibility);
+  } else if (currentDiv == 'chart-population') {
+    makeChart(totalPopulation, newVisibility);
+  } else {
+    makeChart(waterPerCapita, newVisibility);
+  }
+}
+
+// setup the instance, pass callback functions
+scroller
+  .setup({
+    step: ".step",
+    offset: 0.5
+  })
+  .onStepEnter(response => {
+    toggleAnimation(response.element.id, true)
+  })
+  .onStepExit(response => {
+    toggleAnimation(response.element.id, false)
+  });
+
 function getInnerWidth() {
   var innerWidth = parseFloat(window.getComputedStyle(document.getElementById("main"), null).getPropertyValue("width"));
-  console.log(innerWidth);
   return innerWidth;
 }
 
-window.addEventListener("resize", renderChart);
+// setup resize events
+window.addEventListener("resize", renderCharts);
+window.addEventListener("resize", scroller.resize);
 
-renderChart();
+renderCharts();

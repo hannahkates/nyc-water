@@ -43,22 +43,6 @@ body {
   }
 }
 
-
-.text-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  /* grid-template-rows: auto; */
-  /* grid-gap: 1rem 1rem; */
-  align-self: start;
-}
-
-/* .flexbox-container {
-  display: flex;
-  flex-template: 2fr 1fr 1fr;
-  /* grid-gap: 10px 10px; */
-/* } */
-
-
 h1 {
   font-family: "Georgia";
   text-align: center;
@@ -92,13 +76,6 @@ figure.banner-img {
 figcaption {
   font-size: 10px;
   color: #757575;
-}
-
-.chart-container{
-  display: inline-block;
-  margin: 0 auto;
-  margin-top: .5em;
-  margin-bottom: 2em;
 }
 
 rect{
