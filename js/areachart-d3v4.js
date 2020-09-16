@@ -35,10 +35,47 @@ var waterPerCapita = {
   divName: 'chart-per-capita',
 }
 
-// Call the makeBarChart function using the configs for the three desired charts
-makeBarChart(totalWater)
-makeBarChart(totalPopulation)
-makeBarChart(waterPerCapita)
+function renderChart() {
+  // Call the makeBarChart function using the configs for the three desired charts
+  makeBarChart(totalWater)
+  makeBarChart(totalPopulation)
+  makeBarChart(waterPerCapita)
+}
+
+// // instantiate the scrollama
+// const scroller = scrollama();
+
+// // setup the instance, pass callback functions
+// scroller
+//   .setup({
+//     step: ".step"
+//   })
+//   .onStepEnter(response => {
+//     // Add the circles
+//     svg.selectAll("myCircles")
+//       .data(data)
+//       .enter()
+//       .append("circle")
+//         .attr("fill", "navy")
+//         .attr("stroke", "none")
+//         .attr("cx", function(d) { return x(d[xVariable]) })
+//         .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
+//         .attr("r", 3)
+//         .on('mouseover', tool_tip.show)
+//         .on('mouseout', tool_tip.hide)
+//         .style("opacity", 0)
+//         .transition()
+//         .delay(function(d,i){ return i * 50 })
+//         .style("opacity", 1);
+//     // { element, index, direction }
+//   })
+//   .onStepExit(response => {
+//     console.log('im out!');
+//     // { element, index, direction }
+//   });
+
+// // setup resize event
+// window.addEventListener("resize", scroller.resize);
 
 // Function which creates a bar chart in a specified div using the chart config passed to it as a variable
 function makeBarChart(chartConfig) {
@@ -60,9 +97,13 @@ function makeBarChart(chartConfig) {
   // Parse the Data
   d3.csv(dataURL, function(data) {
 
-    // add the SVG element
-    var svg = d3.select("#" + divName)
+    // responsivity: remove the SVG that may already exists for the chart
+    d3.select(`#svg-${divName}`).remove();
+
+    // add the SVG element and give it a unique ID
+    svg = d3.select("#" + divName)
       .append("svg")
+        .attr("id", `svg-${divName}`)
         .attr("width", width + margin.left + margin.right)
         .attr("height", chartHeight + margin.top + margin.bottom)
       .append("g")
@@ -159,6 +200,36 @@ function makeBarChart(chartConfig) {
         .transition()
         .delay(function(d,i){ return i * 50 })
         .style("opacity", 1);
+
+    // setup the instance, pass callback functions
+    // scroller
+    //   .setup({
+    //     step: ".step"
+    //   })
+    //   .onStepEnter(response => {
+    //     console.log('im in a div');
+    //     // Add the circles
+    //     svg.selectAll("myCircles")
+    //       .data(data)
+    //       .enter()
+    //       .append("circle")
+    //         .attr("fill", "navy")
+    //         .attr("stroke", "none")
+    //         .attr("cx", function(d) { return x(d[xVariable]) })
+    //         .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
+    //         .attr("r", 3)
+    //         .on('mouseover', tool_tip.show)
+    //         .on('mouseout', tool_tip.hide)
+    //         .style("opacity", 0)
+    //         .transition()
+    //         .delay(function(d,i){ return i * 50 })
+    //         .style("opacity", 1);
+    //     // { element, index, direction }
+    //   })
+    //   .onStepExit(response => {
+    //     console.log('im out!');
+    //     // { element, index, direction }
+    //   });
   })
 }
 
@@ -167,3 +238,7 @@ function getInnerWidth() {
   console.log(innerWidth);
   return innerWidth;
 }
+
+window.addEventListener("resize", renderChart);
+
+renderChart();

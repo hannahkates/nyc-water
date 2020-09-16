@@ -32,7 +32,7 @@
       <h4>New York City's total water demand has decreased significantly over the past four decades.</h4>
       <p>In 1979, the city consumed over 1.5 billion gallons of water each day. Since then, the total daily consumption has dropped by about a third. In 2019, the daily total dropped to below a billion gallons each day. This includes all water used by households, businesses, industry, and lost through leaks in the water supply system.</p>
     </div>
-    <div class="chart-container">
+    <div class="chart-container step" data-step="a">
       <div id="chart-total"></div>
     </div>
 
@@ -40,7 +40,7 @@
       <h4>This decrease is rather surprising, because NYC has experienced steady population growth throughout the same time period.</h4>
       <p>NYC's population has increased by over a million people since 1980. Only in the last few years, since 2016, has population growth begun to level off and slightly decline.</p>
     </div>
-    <div class="chart-container">
+    <div class="chart-container step" data-step="b">
       <div id="chart-population"></div>
     </div>
 
@@ -48,7 +48,7 @@
       <h4>Even though there are more people, less water is consumed per person.</h4>
       <p>On a per capita basis, New Yorkers consume about 45% less water today than in 1980. Are individuals actually consuming that much less water?</p>
     </div>
-    <div class="chart-container">
+    <div class="chart-container step" data-step="c">
       <div id="chart-per-capita"></div>
     </div>
 
@@ -73,8 +73,12 @@
     </p>
   </div>
   <div class="right-white"></div>
+  <!-- Dependencies -->
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="js/d3-tip.js"></script>
+  <script src="https://unpkg.com/intersection-observer"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  <!-- Custom JS files for this app -->
   <script src="js/areachart-d3v4.js"></script>
 </body>
 </html>
