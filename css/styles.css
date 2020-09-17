@@ -52,18 +52,20 @@ h4 {
   margin-bottom: .7em;
 }
 
-p {
+/* p {
   font-size: 14px;
-}
+} */
 
 img {
   width:100%;
   max-width:100%;
   height:auto;
+  border:1px solid grey;
 }
 
 img.logo {
   width:22px;
+  border:none;
 }
 
 figure.banner-img {
