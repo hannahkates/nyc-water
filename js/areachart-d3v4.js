@@ -52,7 +52,7 @@ function renderCharts() {
 // Function which creates a bar chart in a specified div using the chart config passed to it as a variable
 function makeChart(chartConfig, divVisibility) {
 
-  var margin = {top: 30, right: 5, bottom: 50, left: 50};
+  var margin = {top: 30, right: 15, bottom: 50, left: 45};
 
   var dataURL = chartConfig.dataURL;
   var xVariable = chartConfig.xVariable;
@@ -82,38 +82,17 @@ function makeChart(chartConfig, divVisibility) {
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
 
-    // X axis
-    var x = d3.scaleBand()
+    // Define X
+    var x = d3.scaleLinear()
       .range([ 0, width ])
-      .domain(data.map(function(d) { return d[xVariable]; }))
-      .padding(1);
-    svg.append("g")
-      .attr("transform", "translate(0," + chartHeight + ")")
-      .call(d3.axisBottom(x))
-      .selectAll("text")
-        .attr("transform", "translate(-12,10)rotate(-90)")
-        .style("text-anchor", "end")
-        .style("font-size", "10px");
+      .domain([1979, 2019]);
 
-    // Add Y axis
+    // Define Y axis
     var y = d3.scaleLinear()
       .domain([yAxisMin, yAxisMax]).nice()
       .range([chartHeight, 0]);
-    svg.append("g")
-      .call(d3.axisLeft(y))
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", -45) // offset to left of axis
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .style("font-size", "10px")
-      .text(yLabel);
 
-
-    // functions that will add commas for thousands and round to 2 decimal places
-    var formatThousands = d3.format(',.1f');
-
-    // Add the area chart
+    // Render the area chart
     svg.append("path")
       .datum(data)
       .attr("fill", "#cfe9ff")
@@ -125,14 +104,34 @@ function makeChart(chartConfig, divVisibility) {
         .y1(function(d) { return y(d[yVariable]/yDenominator) })
       );
 
-    // add the Y gridlines
+    // Render x axis (on top of the path area so lines are visible)
     svg.append("g")
-        .attr("class", "grid")
-        .call(d3.axisLeft(y)
-            .ticks(10)
-            .tickSize(-width)
-            .tickFormat("")
-        )
+      .attr("transform", "translate(0," + chartHeight + ")")
+      .call(d3.axisBottom(x)
+        .ticks(20, "y")
+      )
+      .selectAll("text")
+        .attr("transform", "translate(-12,10)rotate(-90)")
+        .style("text-anchor", "end")
+        .style("font-size", "11px");
+
+    // Render y axis and grid lines (on top of the path area so lines are visible)
+    svg.append("g")
+      .attr("class", "grid")
+      .call(d3.axisLeft(y)
+        .ticks(6)
+        .tickSize(-width)
+      )
+      .selectAll("text")
+        .style("font-size", "11px");;
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -44) // offset to left of axis
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .style("font-size", "13px")
+      .style("font-weight", "bold")
+      .text(yLabel);
 
     // Add the line
     svg.append("path")
@@ -145,12 +144,15 @@ function makeChart(chartConfig, divVisibility) {
         .y(function(d) { return y(d[yVariable]/yDenominator) })
         )
 
+    // functions that will add commas for thousands and round to 2 decimal places
+    var formatThousands = d3.format(',.1f');
+
     // Define the tooltop for hover
     var tool_tip = d3.tip()
       .attr('class', 'd3-tip')
       .offset([-10, 0])
       .html(function(d) {
-        return formatThousands(d[yVariable]/yDenominator) + " " + yLabelShort;
+        return `${formatThousands(d[yVariable]/yDenominator)} ${yLabelShort}<br><i>(yr ${d[xVariable]})</i>`;
     })
 
     // Apply the tooltip to the svg

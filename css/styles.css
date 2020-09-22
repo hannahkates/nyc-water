@@ -129,6 +129,7 @@ rect:hover{
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 10px;
+  text-align: center;
 }
 
 /* Creates a small triangle extender for the tooltip */
@@ -153,7 +154,7 @@ rect:hover{
 
 .grid line {
   stroke: lightgrey;
-  stroke-opacity: 0.7;
+  stroke-opacity: 1;
   shape-rendering: crispEdges;
 }
 
