@@ -109,9 +109,10 @@ function makeChart(chartConfig, divVisibility) {
       .attr("transform", "translate(0," + chartHeight + ")")
       .call(d3.axisBottom(x)
         .ticks(20, "y")
+        .tickSize(0)
       )
       .selectAll("text")
-        .attr("transform", "translate(-12,10)rotate(-90)")
+        .attr("transform", "translate(-5,5)rotate(-90)")
         .style("text-anchor", "end")
         .style("font-size", "11px");
 

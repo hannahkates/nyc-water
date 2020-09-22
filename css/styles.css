@@ -17,21 +17,9 @@ body {
   }
 }
 
-.left-white {
-  padding:20px;
-  float:left;
-  width:20%; /* The width is 20%, by default */
-}
-
-.right-white {
-  padding:20px;
-  float:left;
-  width:20%; /* The width is 20%, by default */
-}
-
 h1 {
   font-family: 'Anaheim', sans-serif;
-  font-size: 50px;
+  font-size: 48px;
   text-align: center;
 }
 
@@ -67,6 +55,11 @@ img.img-left {
 img.logo {
   width:22px;
   border:none;
+}
+
+.banner {
+  display: block;
+  text-align: center;
 }
 
 figure.banner-img {
@@ -153,7 +146,13 @@ rect:hover{
 }
 
 .grid line {
-  stroke: lightgrey;
+  stroke: #adadad;
+  stroke-opacity: 1;
+  shape-rendering: crispEdges;
+}
+
+.tick line {
+  stroke: #adadad;
   stroke-opacity: 1;
   shape-rendering: crispEdges;
 }
