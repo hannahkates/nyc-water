@@ -52,7 +52,7 @@ function renderCharts() {
 // Function which creates a bar chart in a specified div using the chart config passed to it as a variable
 function makeChart(chartConfig, divVisibility) {
 
-  var margin = {top: 30, right: 40, bottom: 50, left: 52};
+  var margin = {top: 30, right: 5, bottom: 50, left: 50};
 
   var dataURL = chartConfig.dataURL;
   var xVariable = chartConfig.xVariable;
@@ -103,7 +103,7 @@ function makeChart(chartConfig, divVisibility) {
       .call(d3.axisLeft(y))
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", -48) // offset to left of axis
+      .attr("y", -45) // offset to left of axis
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .style("font-size", "10px")

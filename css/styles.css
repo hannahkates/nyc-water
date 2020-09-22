@@ -4,43 +4,29 @@ body {
   background-color:#edf7ff;
 }
 
+.container {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 20px;
+    max-width: 100%;
+  }
+}
+
 .left-white {
   padding:20px;
   float:left;
   width:20%; /* The width is 20%, by default */
 }
 
-.main {
-  /* background-color:#ffffff; */
-  padding:20px;
-  float:left;
-  width:50%; /* The width is 60%, by default */
-}
-
 .right-white {
   padding:20px;
   float:left;
   width:20%; /* The width is 20%, by default */
-}
-
-/* Use a media query to add a breakpoint at 800px: */
-@media screen and (max-width: 800px) {
-  .left-white, .main, .right-white {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .left-white, .right-white {
-    padding: 0px; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-}
-
-/* Use a media query to add a breakpoint at 800px: */
-@media screen and (max-width: 800px) {
-  .left-white, .main, .right-white {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .left-white, .right-white {
-    padding: 0px; /* The width is 100%, when the viewport is 800px or smaller */
-  }
 }
 
 h1 {
@@ -85,7 +71,7 @@ img.logo {
 
 figure.banner-img {
   align-self:center;
-  width:100%;
+  max-width:100%;
   margin-top: 3.8em;
   margin-bottom: 3em;
 }
@@ -104,8 +90,8 @@ figure.float-left {
   display:table;
   margin-left: 0em;
   margin-right: 2em;
-  margin-top: 0em;
-  margin-bottom: 2em;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
 }
 
 figure.d3-chart {
