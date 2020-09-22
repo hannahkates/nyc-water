@@ -52,7 +52,7 @@ function renderCharts() {
 // Function which creates a bar chart in a specified div using the chart config passed to it as a variable
 function makeChart(chartConfig, divVisibility) {
 
-  var margin = {top: 40, right: 40, bottom: 70, left: 60};
+  var margin = {top: 30, right: 40, bottom: 50, left: 52};
 
   var dataURL = chartConfig.dataURL;
   var xVariable = chartConfig.xVariable;
@@ -93,7 +93,7 @@ function makeChart(chartConfig, divVisibility) {
       .selectAll("text")
         .attr("transform", "translate(-12,10)rotate(-90)")
         .style("text-anchor", "end")
-        .style("font-size", "9px");
+        .style("font-size", "10px");
 
     // Add Y axis
     var y = d3.scaleLinear()
@@ -103,10 +103,10 @@ function makeChart(chartConfig, divVisibility) {
       .call(d3.axisLeft(y))
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", -55) // offset to left of axis
+      .attr("y", -48) // offset to left of axis
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .style("font-size", "9px")
+      .style("font-size", "10px")
       .text(yLabel);
 
 
@@ -117,7 +117,7 @@ function makeChart(chartConfig, divVisibility) {
     svg.append("path")
       .datum(data)
       .attr("fill", "#cfe9ff")
-      .attr("stroke", "navy")
+      .attr("stroke", "#00006e")
       .attr("stroke-width", 0)
       .attr("d", d3.area()
         .x(function(d) { return x(d[xVariable]) })
@@ -138,7 +138,7 @@ function makeChart(chartConfig, divVisibility) {
     svg.append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "navy")
+      .attr("stroke", "#00006e")
       .attr("stroke-width", 2)
       .attr("d", d3.line()
         .x(function(d) { return x(d[xVariable]) })
@@ -163,7 +163,7 @@ function makeChart(chartConfig, divVisibility) {
         .data(data)
         .enter()
         .append("circle")
-          .attr("fill", "navy")
+          .attr("fill", "#0000bc")
           .attr("stroke", "none")
           .attr("cx", function(d) { return x(d[xVariable]) })
           .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })

@@ -51,27 +51,31 @@ h1 {
 
 h2 {
   font-family: 'Anaheim', sans-serif;
-  font-size: 24px;
-  margin-bottom: .7em;
+  font-size: 32px;
+  padding-top: 1em;
 }
 
 h3 {
   font-family: 'Anaheim', sans-serif;
-  font-size: 20px;
-  margin-bottom: .7em;
+  font-size: 24px;
+  padding-top: 1em;
 }
 
 .takeaway {
   font-family: 'Anaheim', sans-serif;
   font-size: 24px;
-  margin-bottom: .7em;
 }
 
 img {
-  width:100%;
   max-width:100%;
   height:auto;
   border:1px solid grey;
+}
+
+img.img-left {
+  float:left;
+  margin-bottom: 1.5em;
+  margin-right: 2.5em;
 }
 
 img.logo {
@@ -80,15 +84,47 @@ img.logo {
 }
 
 figure.banner-img {
-  display: block;
-  text-align: center;
+  align-self:center;
+  width:100%;
   margin-top: 3.8em;
+  margin-bottom: 3em;
+}
+
+figure.block-left {
+  align:left;
+  display:block;
+  margin-left: 0em;
+  margin-right: 0em;
+  margin-top: 3.8em;
+  margin-bottom: 3em;
+}
+
+figure.float-left {
+  float:left;
+  display:table;
+  margin-left: 0em;
+  margin-right: 2em;
+  margin-top: 0em;
+  margin-bottom: 2em;
+}
+
+figure.d3-chart {
+  align:left;
+  display:block;
+  margin-left: 0em;
+  margin-right: 0em;
+  margin-top: 0em;
   margin-bottom: 3em;
 }
 
 figcaption {
   font-size: 10px;
   color: #757575;
+}
+
+figcaption.float-left {
+  display:table-caption;
+  caption-side: bottom;
 }
 
 rect{
@@ -100,12 +136,13 @@ rect:hover{
 }
 
 .d3-tip {
+  font-family: 'Anaheim', sans-serif;
   line-height: 1;
   font-weight: bold;
   padding: 12px;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
 /* Creates a small triangle extender for the tooltip */
