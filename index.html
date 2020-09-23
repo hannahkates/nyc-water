@@ -17,8 +17,6 @@
 </head>
 
 <body>
-<!--
-  <div class="left-white"></div> -->
 
   <div id="main" class="container w-container">
 
@@ -27,7 +25,7 @@
     <div class="banner">
       <figure class="banner-img">
         <img src="https://i.pinimg.com/564x/90/07/67/900767b848f015e16c4c4002640aee9c.jpg" alt="Water towers on top of NYC buildings">
-        <figcaption>Water towers on top of NYC buildings. Source: <a href src="https://i.pinimg.com/564x/90/07/67/900767b848f015e16c4c4002640aee9c.jpg">NRDC</a></figcaption>
+        <figcaption>Water towers on top of NYC buildings. Source: <a href="https://i.pinimg.com/564x/90/07/67/900767b848f015e16c4c4002640aee9c.jpg">NRDC</a></figcaption>
       </figure>
     </div>
 
@@ -35,78 +33,87 @@
     <p>In 1979, the city consumed over 1.5 billion gallons of water each day. Since then, the total daily consumption has dropped by about a third. In 2019, the daily total decreased to below a billion gallons each day. This includes all water used by households, businesses, industry, and lost through leaks in the water supply system.</p>
     <figure class="d3-chart">
       <div class="step" data-step="a" id="chart-total"></div>
-      <figcaption>Source: <a href src="https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m">NYC Dept of Environmental Protection</a></figcaption>
+      <figcaption>Source: <a href="https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m">NYC Dept. of Environmental Protection</a></figcaption>
     </figure>
 
     <p class="takeaway">This decrease is rather surprising, because NYC has experienced steady population growth throughout the same time period.</p>
     <p>NYC's population has increased by over a million people since 1980. Only in the last few years, since 2016, has population growth begun to level off and slightly decline.</p>
     <figure class="d3-chart">
       <div class="step" data-step="b" id="chart-population"></div>
-      <figcaption>Source: <a href src="https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m">NYC Dept of Environmental Protection</a></figcaption>
+      <figcaption>Source: <a href="https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m">NYC Dept. of Environmental Protection</a></figcaption>
     </figure>
 
     <p class="takeaway">Even though there are more people, less water is consumed per person.</p>
     <p>On a per capita basis, New Yorkers consume about 45% less water today than in 1980. Are individuals each consciously consuming that much less water?</p>
     <figure class="d3-chart">
       <div class="step" data-step="c" id="chart-per-capita"></div>
-      <figcaption>Source: <a href src="https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m">NYC Dept of Environmental Protection</a></figcaption>
+      <figcaption>Source: <a href="https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m">NYC Dept. of Environmental Protection</a></figcaption>
     </figure>
 
     <h2>What has caused this decrease in NYC's total water demand?</h2>
     <p>The decreased water demand can be credited to a combination of government initiatives. Most of the efforts began in the mid-1980s, spurred by significant droughts in 1980, 1985, and 1989 that critically threatened NYC's water supply.</p>
-    <p>First, it's helpful to provide a breakdown of how water is used in NYC</p>
+    <p>In order to appreciate the rationale behind the City's different initiatives, it's helpful to first understand the breakdown of how water is used in NYC:<br><br>[INSERT d3 BUBBLE CHART INSTEAD]</p>
     <figure class="float-left">
       <img src="images/land-use-chart.png" alt="Chart showing percentage breakdown of revenue-generating water usages by land use category">
-      <figcaption>Chart showing percentage breakdown of revenue-generating water usages by land use category. Source: <a href src="https://www1.nyc.gov/assets/em/downloads/pdf/hazard_mitigation/nycs_risk_landscape_chapter_4.7_watershortage.pdf">NYC Dept of Environmental Protection</a></figcaption>
+      <figcaption>Chart showing percentage breakdown of revenue-generating water usages by land use category. Source: <a href="https://www1.nyc.gov/assets/em/downloads/pdf/hazard_mitigation/nycs_risk_landscape_chapter_4.7_watershortage.pdf">NYC Dept. of Environmental Protection</a></figcaption>
     </figure>
+    <p>The largest segment is for residential use. Residential properties accounted for 84 percent of the city’s total billed water demand in 2018.</p>
 
     <h3>Metering.</h3>
     <p>
-      Until the late 1980s and 1990s, residential property owners weren't accurately charged for their water usage. Buildings were simply charged a flat fee based on the street frontage and number of plumbing fixtures, regardless of how much water they actually consumed. It wasn't until 1985, thanks to Local Law 53, that the City required the installation of water meters at buildings. The law required all new construction and all substantially renovated properties to install water meters. In 1987, City Council approved a plan called “Universal Metering” that further required water meters to be installed at every property within the City over a 10-year period.
+      Until the late 1980s and 1990s, residential property owners weren't accurately charged for their water usage. Buildings were simply charged a flat fee based on the street frontage and number of plumbing fixtures, regardless of how much water they actually consumed. It wasn't until 1985, thanks to Local Law 53, that the City required the installation of water meters at buildings. The law required all new construction and all substantially renovated properties to install water meters. In 1987, City Council approved a plan called “Universal Metering” that further required water meters to be installed at every property within the City over a 10-year period. The more accurate billing has motivated lower water consumption.
       <figure class="float-left">
         <img src="images/Water_meter_register.jpg" alt="Chart showing percentage breakdown of revenue-generating water usages by land use category">
-        <figcaption class="float-left">A water meter. Source: <a href src="https://upload.wikimedia.org/wikipedia/en/8/82/Water_meter_register.jpg">Wikimedia</a></figcaption>
+        <figcaption class="float-left">A water meter. Source: <a href="https://upload.wikimedia.org/wikipedia/en/8/82/Water_meter_register.jpg">Wikimedia</a></figcaption>
       </figure>
-      It's important to note that metering occurs at the building level, not at the individual dwelling unit level. However, the more granular and scaled pricing has still motivated lower water consumption overall. As of Sept 2020, the combined cost of water and sewer is $10.33 per 100 cubic feet. There is a minimum water and sewer charge per metered household of $1.27 per day. <a href="https://www1.nyc.gov/site/dep/pay-my-bills/how-we-bill-you.page">More info on billing</a> Unfortunately, most aging New York City residential buildings are just not structured to accommodate splitting water meters to all of the tenants. Typically these older-style buildings use a "riser" system of plumbing where the water comes into the basement and is sent up to bathroom and kitchen risers throughout the building. As a result, according to Michael Lockhart, president of American Telephone and Utility Consultants - a utility auditing company in Manhattan - submetering would be almost impossible. Also complicating the issue is Section 1045, 2A, of the Public Authorities Law of New York, which states that, unlike electric charges, water charges are charged to the property, not to individual tenants. In this way, the water company can put a lien on the property if water bills go unpaid.
+      It's important to recognize that in NYC, metering usually captures the usage of the entire residential building, not the individual apartments. Most of the old residential buildings are not designed in a way that can accommodate splitting water meters to monitor each of the tenants. The older buildings typically use a "riser" system where the water enters through the basement and is sent up to all bathroom and kitchen risers in the building; this makes it much more difficult to submeter per unit.
+      <br><br>
+      This also means that the individual tenants aren't incentivized to save water, and the impetus falls on the landlord who is responsible for the cost of the entire building. As of Sept 2020, the combined cost of water and sewer is $10.33 per 100 cubic feet. <a href="https://www1.nyc.gov/site/dep/pay-my-bills/how-we-bill-you.page">More info on the billing process</a>.
     </p>
+
+    <h3>Regulation and rebate programs.</h3>
+    <p>In addition to metering, the City has implemented policies and programs to reduce water consumption in buildings. The City now requires water-saving fixtures and devices in major building renovations and new construction.</p>
+    <p>Toilets are generally considered the most wasteful fixture. Older toilets average about 3.5-5.0 gallons of water per flush, whereas high-efficiency models consume as little as 1.28 gallons per flush. To mitigate the unappealing capital costs of replacing fixtures, the NYC Dept. of Environmental Protection has implemented two different programs aimed at toilet efficiency. The 1994-1997 Toilet Rebate Program facilitated the replacement of 1.3 million toilets citywide. The most recent 2014-2019 Toilet Replacement Program facilitated the replacement of 13,600 toilets.</p>
+    <p>Additionally, NYC Dept. of Environmental Protection provides water conservation education for property owners and offers free surveys to help property owners detect leaks in the plumbing in their building.</p>
+    <figure class="float-left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Sloan_dual-function_toilet_handle_2.JPG" alt="The handle of a modern, flush efficient toilet">
+      <figcaption>The handle of a modern, flush efficient toilet. Source: <a href="https://upload.wikimedia.org/wikipedia/commons/6/61/Sloan_dual-function_toilet_handle_2.JPG">Wikimedia</a></figcaption>
+    </figure>
+    <p>NYC Dept. of Environmental Protection also has programs focused on savings in non-residential properties. The Water Challenge to Universities engages campus facility staff in water conservation strategies and promotes a water conservation ethic among students. So far, the participating universities have exceeded the original goal of the Challenge. Collectively, they have reduced their monthly average consumption by 11%, ~3.4 million gallons – amounting to a total annual average savings of 41,400,000 gallons.</p>
 
     <h3>Fixing leaks & reducing waste in the supply system.</h3>
     <p>Of particular concern now is the Delaware Aqueduct, which delivers approximately half of the city’s drinking water – 500 million gallons per day. It is leaking as much as 35 million gallons per day. New technologies have permitted DEP to perform inspections of it, and a major project to repair it is under way. Among other portions of the system that may need maintenance or repair, most notable are City Water Tunnel No. 1, completed in 1917, and City Water Tunnel No. 2, completed in 1936. They have been delivering water to our homes, businesses, and institutions continuously since they were placed in service. Because of concerns that a reduction in water pressure might damage part of the system, neither tunnel has ever been shut down for inspections and repairs. </p>
     <p>With nearly 7,000 miles of sub-surface water main infrastructure serving more than 8 million people throughout the five boroughs. Starting in _____ The City undertook a massive effort to fix leaks and waste in the water supply system. They have used sonar and other technology to find the leaks. However, with the City's aging infrastructure, it's impossible to completely eliminate leaks. Over the past five years, DEP leak detection crews have surveyed more than 3,750 miles of water mains. DEP has achieved an average estimated savings of 1.89 million gallons per day from repairing the leaks discovered during these surveys.</p>
-    <p>Additionally, the City has installed sprinkler caps on fire hydrants that reduce the flow. This makes the classic NYC summer usage of fire hydrants as a cooling street fountains less wasteful. The spray caps can be requested at local fire stations.</p>
+    <p>Additionally, the City has installed sprinkler caps on fire hydrants that reduce flow. This makes the classic NYC summer usage of fire hydrants as cooling street fountains less wasteful. The spray caps can be requested at local fire stations.</p>
     <figure class="block-left">
       <img src="https://www.nydailynews.com/resizer/QKrBvy0x9LWzfwTiTBVlrxSVdNg=/800x531/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/FT5VXIIOPFXR6RICWZHOQURQ3M.jpg" alt="Children playing in water from a fire hydrant with a spray cap.">
-      <figcaption>Children playing in water from a fire hydrant with a flow reducing spray cap. Source: <a href src="https://www.wnyc.org/story/309912-making-open-fire-hydrants-legal-and-safer/">NY Daily News / NYC Dept of Environmental Protection</a></figcaption>
+      <figcaption>Children playing in water from a fire hydrant with a flow reducing spray cap. Source: <a href="https://www.wnyc.org/story/309912-making-open-fire-hydrants-legal-and-safer/">NY Daily News / NYC Dept. of Environmental Protection</a></figcaption>
     </figure>
     <h3>Improved efficiency at City facilities.</h3>
     <p>FDNY, schools, DCAS, DEP</p>
 
-    <h3>Regulation and incentive programs.</h3>
-    <p>Residential properties accounted for 84 percent of the city’s total billed water demand in 2018. The City requires water-saving fixtures and devices in building renovations and new construction. Toilets are generally the most wasteful. Older toilets can use 3.5 to 5.0 gallons of water per flush; high-efficiency models consume as little as 1.28 gallons per flush. 1994-1997 Toilet Rebate Program, under which 1.3 million toilets were replaced citywide, and the most recent 2014-2019 Toilet Replacement Program, under which over 13,600 toilets were replaced citywide. ALSO offers free surveys to help property owners detect leaks in the plumbing in their building.</p>
-    <p>Efficiency improvements in toilets, clothes washers, and dishwashers, in addition to a decrease in leaks, are chiefly responsible for these demand reductions</p>
-    <p>Non-residential: The Water Challenge to Universities leverages this opportunity by engaging campus facility staff in water conservation strategies and fostering a water conservation ethic among students. For the Challenge, participating universities set a goal to voluntarily reduce their water usage by 5 percent from their baseline year. Collectively, the participating universities exceeded the goal of the Challenge, reducing their monthly average consumption by 11 percent, or 3.4 million gallons – a total annual average savings of 41,400,000 gallons.</p>
-
     <h2>Will it be sustained?</h2>
-    <p>jkhlkhlkhj.</p>
+    <p>Much of the low hanging fruit may have already been claimed since the 1980s, but it seems likely that the total water demand will continue to decrease. City agencies are continuing to push forward multi-faceted conservation programs. Additionally, over time, more of the city's building stock will be rehabbed and reconstructed, incorporating better technology and therefore higher water efficiency. If NYC's population size continues to decline, that will also play an important role in reducing total demand. The 2020 Decennial Census will be very revealing!</p>
 
     <h2>More reading</h2>
     <ul>
-      <li><i><a href src="https://www.nytimes.com/1986/11/13/nyregion/water-meters-due-in-new-york-homes.html">"WATER METERS DUE IN NEW YORK HOMES"</a>, New York Times</i> - an original 1986 article about the installation and funding plans for the residential water meters</li>
-      <li><i><a href src="https://www.arcgis.com/apps/Cascade/index.html?appid=de03aaab99f84be0914f31921ba6e9fa">Water Demand Management in NYC</a>, NYC Department of Environmental Protection</i> - a thorough yet engaging story map by highlighing their water conservation efforts and specific projects</li>
-      <li><i><a href src="https://www1.nyc.gov/site/dep/water/water-conservation.page">Water Conservation</a>, NYC Department of Environmental Protection</i> - the section of their website with resources related to water conservation</li>
-      <li><i><a href src="https://cooperator.com/article/conserving-your-profits/full">Conserving Your Profits</a>, Cooperator</i> - a 2004 article written from the perspective of a co-op or condo operator that provides insight into their concerns and other billing models for multi-family properties.</li>
+      <li><i><a href="https://www.nytimes.com/1986/11/13/nyregion/water-meters-due-in-new-york-homes.html">"WATER METERS DUE IN NEW YORK HOMES"</a>, New York Times</i> - an original 1986 article about the installation and funding plans for the residential water meters</li>
+      <li><i><a href="https://www.arcgis.com/apps/Cascade/index.html?appid=de03aaab99f84be0914f31921ba6e9fa">Water Demand Management in NYC</a>, NYC Department of Environmental Protection</i> - a thorough yet engaging story map by highlighing their water conservation efforts and specific projects</li>
+      <li><i><a href="https://www1.nyc.gov/site/dep/water/water-conservation.page">Water Conservation</a>, NYC Department of Environmental Protection</i> - the section of their website with resources related to water conservation</li>
+      <li><i><a href="https://cooperator.com/article/conserving-your-profits/full">Conserving Your Profits</a>, Cooperator</i> - a 2004 article written from the perspective of a co-op or condo operator that provides insight into their concerns and other billing models for multi-family properties.</li>
     </ul>
-
-    <p>
-      <a id="github" href="https://github.com/hannahkates/nyc-water" target="_blank">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2000px-Octicons-mark-github.svg.png">
-        Hannah Kates, 2020
-      </a>
-    </p>
 
   </div>
 
-  <!-- <div class="right-white"></div> -->
+  <div class="footer">
+    <hr>
+    <br>
+    <a href="https://github.com/hannahkates/nyc-water" target="_blank">Hannah Kates, 2020</a>
+    <br>
+    <a id="github" href="https://github.com/hannahkates/nyc-water" target="_blank">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2000px-Octicons-mark-github.svg.png">
+    </a>
+  </div>
 
   <!-- Dependencies -->
   <script src="https://d3js.org/d3.v4.js"></script>

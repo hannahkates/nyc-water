@@ -130,7 +130,7 @@ function makeChart(chartConfig, divVisibility) {
       .attr("y", -44) // offset to left of axis
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .style("font-size", "13px")
+      .style("font-size", "14px")
       .style("font-weight", "bold")
       .text(yLabel);
 

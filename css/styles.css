@@ -55,6 +55,7 @@ img.img-left {
 img.logo {
   width:22px;
   border:none;
+  transform: translate(0px, 5px);
 }
 
 .banner {
@@ -159,4 +160,11 @@ rect:hover{
 
 .grid path {
   stroke-width: 0;
+}
+
+.footer {
+  font-family: 'Anaheim', sans-serif;
+  padding-top: 4em;
+  padding-bottom: 2em;
+  text-align: center;
 }
