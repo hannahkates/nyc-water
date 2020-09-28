@@ -1,61 +1,54 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  padding:0px;
-  background-color:#edf7ff;
+  padding: 0px;
+  background-color: #edf7ff;
 }
 
 .container {
-  max-width: 50%;
+  max-width: 35rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 @media screen and (max-width: 767px) {
   .container {
-    padding: 20px;
+    padding: 1.2rem;
     max-width: 100%;
   }
 }
 
 h1 {
   font-family: 'Anaheim', sans-serif;
-  font-size: 48px;
+  font-size: 3rem;
   text-align: center;
 }
 
 h2 {
   font-family: 'Anaheim', sans-serif;
-  font-size: 32px;
+  font-size: 2rem;
   padding-top: 1em;
 }
 
 h3 {
   font-family: 'Anaheim', sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   padding-top: 1em;
 }
 
-.takeaway {
-  font-family: 'Anaheim', sans-serif;
-  font-size: 24px;
-}
-
 img {
-  max-width:100%;
-  height:auto;
-  /* border:1px solid grey; */
+  max-width: 100%;
+  height: auto;
 }
 
 img.img-left {
-  float:left;
+  float: left;
   margin-bottom: 1.5em;
   margin-right: 2.5em;
 }
 
 img.logo {
-  width:22px;
-  border:none;
-  transform: translate(0px, 5px);
+  width: 1.2rem;
+  padding-top: .3rem
 }
 
 .banner {
@@ -64,8 +57,8 @@ img.logo {
 }
 
 figure.banner-figure {
-  align-self:center;
-  max-width:100%;
+  align-self: center;
+  max-width: 100%;
   margin-top: 3.8em;
   margin-bottom: 3em;
   margin-left: auto;
@@ -73,8 +66,8 @@ figure.banner-figure {
 }
 
 figure.block-left {
-  align:left;
-  display:block;
+  align: left;
+  display: block;
   margin-left: 0em;
   margin-right: 0em;
   margin-top: 3.8em;
@@ -82,8 +75,8 @@ figure.block-left {
 }
 
 figure.float-left {
-  float:left;
-  display:table;
+  float: left;
+  display: table;
   margin-left: 0em;
   margin-right: 2em;
   margin-top: 1.2em;
@@ -91,8 +84,8 @@ figure.float-left {
 }
 
 figure.d3-chart {
-  align:left;
-  display:block;
+  align: left;
+  display: block;
   margin-left: 0em;
   margin-right: 0em;
   margin-top: 0em;
@@ -100,12 +93,12 @@ figure.d3-chart {
 }
 
 figcaption {
-  font-size: 10px;
+  font-size: .7rem;
   color: #757575;
 }
 
 figcaption.float-left {
-  display:table-caption;
+  display: table-caption;
   caption-side: bottom;
 }
 
@@ -113,7 +106,7 @@ rect{
   fill: #cfe6fc;
 }
 
-rect:hover{
+rect: hover{
   fill: navy;
 }
 
@@ -121,15 +114,15 @@ rect:hover{
   font-family: 'Anaheim', sans-serif;
   line-height: 1;
   font-weight: bold;
-  padding: 12px;
+  padding: .8em;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  border-radius: 10px;
+  border-radius: .8em;
   text-align: center;
 }
 
 /* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
+.d3-tip: after {
   box-sizing: border-box;
   display: inline;
   font-size: 10px;
@@ -142,7 +135,7 @@ rect:hover{
 }
 
 /* Style northward tooltips differently */
-.d3-tip.n:after {
+.d3-tip.n: after {
   margin: -1px 0 0 0;
   top: 100%;
   left: 0;
