@@ -171,8 +171,6 @@ function makeChart(chartConfig, divVisibility) {
           .attr("cx", function(d) { return x(d[xVariable]) })
           .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
           .attr("r", 3)
-          .on('mouseover', tool_tip.show)
-          .on('mouseout', tool_tip.hide)
           .style("opacity", 0)
           .transition()
           .delay(function(d,i){ return i * 70 })
