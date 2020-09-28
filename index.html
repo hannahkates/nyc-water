@@ -52,10 +52,10 @@
 
     <h2>What has caused this decrease in NYC's total water demand?</h2>
     <p>The decreased water demand can be credited to a combination of government initiatives. Most of the efforts began in the mid-1980s, spurred by significant droughts in 1980, 1985, and 1989 that critically threatened NYC's water supply.</p>
-    <p>In order to appreciate the rationale behind the City's different initiatives, it's helpful to first understand the breakdown of how water is used in NYC:<br><br>[INSERT d3 BUBBLE CHART INSTEAD]</p>
-    <figure class="float-left">
-      <img src="images/land-use-chart.png" alt="">
-      <figcaption>Chart showing percentage breakdown of revenue-generating water usages by land use category. Source: <a href="https://www1.nyc.gov/assets/em/downloads/pdf/hazard_mitigation/nycs_risk_landscape_chapter_4.7_watershortage.pdf">NYC Dept. of Environmental Protection</a></figcaption>
+    <p>In order to appreciate the reasoning behind the City's different initiatives, it's helpful to first understand the breakdown of how water is used in NYC:</p>
+    <figure class="d3-chart">
+      <div class="step" data-step="d" id="chart-bubble"></div>
+      <figcaption>Chart showing the percentage breakdown of how water is used in NYC, using data from 2011. Source: <a href="https://www1.nyc.gov/assets/em/downloads/pdf/hazard_mitigation/nycs_risk_landscape_chapter_4.7_watershortage.pdf">NYC Dept. of Environmental Protection</a></figcaption>
     </figure>
     <p>The largest segment is for residential use. Residential properties accounted for 84 percent of the city’s total billed water demand in 2018.</p>
 
@@ -120,9 +120,11 @@
   <script src="js/d3-tip.js"></script>
   <script src="https://unpkg.com/intersection-observer"></script>
   <script src="https://unpkg.com/scrollama"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
 
   <!-- Custom JS files for this app -->
   <script src="js/areachart-d3v4.js"></script>
+  <script src="js/bubblechart-d3v4.js"></script>
 
 </body>
 </html>
