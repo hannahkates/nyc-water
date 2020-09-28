@@ -161,7 +161,7 @@ function makeChart(chartConfig, divVisibility) {
 
     // Only add the circle animations once the specific div is visible in the viewport
     if (divVisibility == true) {
-      // Add the circles
+      // Add the visible circles
       svg.selectAll("myCircles")
         .data(data)
         .enter()
@@ -178,6 +178,20 @@ function makeChart(chartConfig, divVisibility) {
           .delay(function(d,i){ return i * 70 })
           .style("opacity", 1);
     }
+
+    // Add transparent circles for more sensitive tooltips
+    svg.selectAll("myCircles")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("fill", "#eb4034")
+        .attr("stroke", "none")
+        .attr("cx", function(d) { return x(d[xVariable]) })
+        .attr("cy", function(d) { return y(d[yVariable]/yDenominator) })
+        .attr("r", 15)
+        .on('mouseover', tool_tip.show)
+        .on('mouseout', tool_tip.hide)
+        .style("opacity", 0)
   })
 }
 
