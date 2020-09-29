@@ -4,14 +4,14 @@ var dataset = {
     { "name": "Residential", "size": .79*60.9 },
     { "name": "Mixed-Use Residential", "size": .79*16 },
     { "name": "Commercial", "size": .79*6.4 },
-    { "name": "Industry", "size": .79*1.9 },
+    { "name": "Industrial", "size": .79*1.9 },
     { "name": "Institutional", "size": .79*4.6 },
     { "name": "Other", "size": .79*(100-60.9-16-6.4-1.9-4.6) }
   ]
 };
 
 var color = d3.scaleOrdinal()
-  	.range(["#0048ad", "#52a1fa", "#3662c2", "#00b7ff", "#2f2fde", "#00006e", "#5488ab"]);
+  	.range(["#00b7ff", "#52a1fa", "#3662c2", "#0048ad", "#2f2fde", "#00006e", "#5488ab"]);
 
 function renderCharts() {
 
@@ -54,24 +54,31 @@ function renderCharts() {
       })
       .style("fill", function(d,i) {
           return color(i);
-      });
+      })
+      .style("opacity", "0.3");
 
   node.append("text")
-      .attr("dy", "-0.5rem")
+      .attr("dy", function(d){
+        if (d.r/5 > 8) {
+          return "-0.5em";
+        } else {
+          return "-0.2em";
+        }
+      })
       .style("text-anchor", "middle")
       .text(function(d) {
           return `${d.data.name}:`;
       })
       .attr("font-family", "Anaheim")
-      .attr("font-weight", "bold")
+      .attr("font-weight", 900)
       .attr("font-size", function(d){
-        if (d.r/5 > 12) {
+        if (d.r/5 > 13) {
           return d.r/5;
         } else {
-          return 12;
+          return 13;
         }
       })
-      .attr("fill", "white");
+      .attr("fill", "black");
 
     node.append("text")
       .attr("dy", "0.7em")
@@ -80,15 +87,15 @@ function renderCharts() {
           return `${Math.round(d.data.size)}%`;
       })
       .attr("font-family", "Anaheim")
-      .attr("font-weight", "bold")
+      .attr("font-weight", 900)
       .attr("font-size", function(d){
-        if (d.r/5 > 12) {
-          return 2*d.r/5;
+        if (d.r/5 > 8) {
+          return 2.5*d.r/5;
         } else {
-          return 20;
+          return 13;
         }
       })
-      .attr("fill", "white");
+      .attr("fill", "black");
 
   d3.select(self.frameElement)
       .style("height", diameter + "px");
