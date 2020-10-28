@@ -7,7 +7,7 @@ This is a data storytelling project that explains NYC's water conservation effor
 
 ## Data sources
 - The three area charts are dependent on live data from [NYC Open Data, Dept. of Environmental Protection, "Water Consumption In The New York City" (updated annually)](https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m)
-- The bubble chart uses static data from a [2011 Dept. of Environmental Protection report](https://www1.nyc.gov/assets/em/downloads/pdf/hazard_mitigation/nycs_risk_landscape_chapter_4.7_watershortage.pdf), that I manually [transcribed into the JavaScript](https://github.com/hannahkates/nyc-water/blob/master/js/bubblechart-d3v4.js#L1) for the chart.
+- The bubble chart uses static data from a [2011 Dept. of Environmental Protection report](https://www1.nyc.gov/assets/em/downloads/pdf/hazard_mitigation/nycs_risk_landscape_chapter_4.7_watershortage.pdf) (page 124). I manually [transcribed the numbers into the JavaScript](https://github.com/hannahkates/nyc-water/blob/master/js/bubblechart-d3v4.js#L1) for the chart.
 
 ## Dependencies
 - d3 v4
